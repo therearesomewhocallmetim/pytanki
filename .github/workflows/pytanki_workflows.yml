@@ -5,10 +5,10 @@ jobs:
   test:
     steps:
       - uses: actions/checkout@v2
-        - name: Setup Python
-          uses: actions/setup-python@v2
-          with:
-            python-version: '3.9'
-        - name: Install Requirements
-          uses: abatilo/actions-poetry@v2.0.0
-          run: poetry --help
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install Requirements
+        uses: abatilo/actions-poetry@v2.0.0
+        run: poetry --help
