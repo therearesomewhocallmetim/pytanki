@@ -1,6 +1,6 @@
 from typing import Any
 
-Coordinates = lambda: [0.0, 0.0]
-Velocities = lambda: [1.0, 0.0]
+Coordinates = list[float]
+Velocities = list[float]
 
 GameItem = dict[str, Any]
