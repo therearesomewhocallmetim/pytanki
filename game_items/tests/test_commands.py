@@ -27,11 +27,26 @@ def test_move__immovable(item):
         move(item)
 
 
-def test_move_from_point_with_speed(game_item):
-    game_item['coordinates'] = [12, 5]
-    game_item['velocities'] = [-7, 3]
-    move(game_item)
-    assert [5, 8] == game_item['coordinates']
+def test_make_movable():
+    item = GameItem()
+    make_movable(item, coordinates=[12, 5], velocities=[-7, 3])
+    assert [12, 5] == item['coordinates']
+    assert [-7, 3] == item['velocities']
+
+
+def test_move_from_point_with_speed():
+    item = GameItem()
+    make_movable(item, coordinates=[12, 5], velocities=[-7, 3])
+    move(item)
+    assert [5, 8] == item['coordinates']
+
+
+def test_make_rotatable():
+    item = GameItem()
+    make_rotatable(item, direction=1, angular_velocity=2, max_directions=7)
+    assert 1 == item['direction']
+    assert 2 == item['angular_velocity']
+    assert 7 == item['max_directions']
 
 
 @pytest.mark.parametrize('num_rotations, expected_direction', [
