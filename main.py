@@ -10,9 +10,7 @@ if __name__ == '__main__':
 
 
     t1 = GameItem()
-
-
-    # move(t1)
+    move(t1)
     rotate(t1)
 
     rotate_and_move = combine_commands(rotate, move)
