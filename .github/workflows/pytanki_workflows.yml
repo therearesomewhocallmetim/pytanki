@@ -19,4 +19,4 @@ jobs:
           poetry install
       - name: run the programme
         run: |
-          poetry run python main.py
+          poetry run python -m pytest
