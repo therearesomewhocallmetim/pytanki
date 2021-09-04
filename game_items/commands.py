@@ -11,6 +11,7 @@ def combine_commands(*commands):
             for command in commands:
                 command(item)
         except:
+            item.clear()
             for k, v in previous_state.items():
                 item[k] = v
             raise
@@ -19,14 +20,31 @@ def combine_commands(*commands):
 
 def move(item: GameItem):
     new_coords = []
-    for coord, velocity in zip(
-            item.get('coordinates', Coordinates),
-            item.get('velocities', Velocities)):
+    for coord, velocity in zip(item['coordinates'], item['velocities']):
         new_coords.append(coord + velocity)
     item['coordinates'] = new_coords
 
 
+def make_movable(
+        item: GameItem,
+        coordinates: Coordinates = None, velocities: Velocities = None):
+    if not coordinates:
+        coordinates = [0.0, 0.0]
+    if not velocities:
+        velocities = [1.0, 0.0]
+    item['coordinates'] = coordinates
+    item['velocities'] = velocities
+
+
 def rotate(item: GameItem):
     item['direction'] = (
-            (item.get('direction', int) + item.get('angular_velocity', 1))
-            % item.get('max_directions', 4))
+            (item['direction'] + item['angular_velocity'])
+            % item['max_directions'])
+
+
+def make_rotatable(
+        item: GameItem,
+        direction: int = 0, angular_velocity: int = 1, max_directions: int = 4):
+    item['direction'] = direction
+    item['angular_velocity'] = angular_velocity
+    item['max_directions'] = max_directions

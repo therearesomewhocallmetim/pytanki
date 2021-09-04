@@ -17,6 +17,6 @@ jobs:
           poetry --help
           poetry show
           poetry install
-      - name: run the programme
+      - name: run the tests
         run: |
           poetry run python -m pytest
