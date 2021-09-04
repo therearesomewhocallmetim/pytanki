@@ -6,7 +6,6 @@ authors = ["Timofey Danshin"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-charmer = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
 

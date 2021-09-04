@@ -16,3 +16,7 @@ jobs:
         run: |
           poetry --help
           poetry show
+          poetry install
+      - name: run the programme
+        run: |
+          poetry run python main.py
