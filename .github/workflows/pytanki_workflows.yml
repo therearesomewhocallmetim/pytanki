@@ -12,6 +12,6 @@ jobs:
       - name: Install Requirements
         uses: abatilo/actions-poetry@v2.0.0
       - name: list installed deps
-          run: |
-            poetry --help
-            poetry show
+        run: |
+          poetry --help
+          poetry show
